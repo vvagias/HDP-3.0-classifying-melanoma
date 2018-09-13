@@ -12,6 +12,8 @@
 
 <br><b>Copy the data to training and test folders:</b>
 
+(Replace folder names 54b6e869bae4785ee2be8652, etc, with correct names is necessary)
+
 <br>&nbsp;&nbsp;&nbsp;&nbsp;2) <code>cp -R ISIC-Dataset-Downloader/54b6e869bae4785ee2be8652/benign/. data/test/benign</code>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;3) <code>cp -R ISIC-Dataset-Downloader/54b6e869bae4785ee2be8652/malignant/. data/test/malignant</code>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;3) <code>cp -R ISIC-Dataset-Downloader/54ea816fbae47871b5e00c80/benign/. data/test/benign</code>
