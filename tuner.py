@@ -40,7 +40,9 @@ below, to correctly reflect the number of images in the data directory
 ```
 '''
 
-
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 from keras import applications
 from keras.preprocessing.image import ImageDataGenerator
@@ -48,6 +50,7 @@ from keras import optimizers
 from keras.models import Sequential
 from keras.models import Model
 from keras.layers import Dropout, Flatten, Dense
+
 
 # path to the model weights files.
 weights_path = '../keras/examples/vgg16_weights.h5'
@@ -60,7 +63,7 @@ train_data_dir = 'data/train'
 validation_data_dir = 'data/test'
 nb_train_samples = 2180
 nb_validation_samples = 600
-epochs = 2
+epochs = 1
 batch_size = 16
 
 # build the VGG16 network
@@ -118,12 +121,37 @@ validation_generator = test_datagen.flow_from_directory(
 model.summary()
 
 # fine-tune the model
-model.fit_generator(
-    train_generator,
-    steps_per_epoch=nb_train_samples // batch_size,
-    epochs=epochs,
-    validation_data=validation_generator,
-    validation_steps=nb_validation_samples // batch_size,
-    verbose=2)
+history = model.fit_generator(
+		    train_generator,
+		    steps_per_epoch=nb_train_samples // batch_size,
+		    epochs=epochs,
+		    validation_data=validation_generator,
+		    validation_steps=nb_validation_samples // batch_size,
+		    verbose=2)
 
 model.save_weights(full_model_weights_path)
+
+# list all data in history
+print(history.history.keys())
+
+
+# summarize history for accuracy
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.savefig('AccuracyHistory.png')
+#plt.show()
+
+
+# summarize history for loss
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.savefig('LossHistory.png')
+#plt.show()
