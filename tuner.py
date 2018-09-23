@@ -51,6 +51,7 @@ from keras.layers import Dropout, Flatten, Dense
 
 # path to the model weights files.
 weights_path = '../keras/examples/vgg16_weights.h5'
+full_model_weights-path = 'full_model.h5'
 top_model_weights_path = 'bottleneck_fc_model.h5'
 # dimensions of our images.
 img_width, img_height = 150, 150
@@ -59,7 +60,7 @@ train_data_dir = 'data/train'
 validation_data_dir = 'data/test'
 nb_train_samples = 2180
 nb_validation_samples = 600
-epochs = 50
+epochs = 2
 batch_size = 16
 
 # build the VGG16 network
@@ -124,3 +125,5 @@ model.fit_generator(
     validation_data=validation_generator,
     validation_steps=nb_validation_samples // batch_size,
     verbose=2)
+
+ model.save_weights(full_model_weights_path)
