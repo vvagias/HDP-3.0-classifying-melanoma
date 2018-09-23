@@ -63,7 +63,7 @@ train_data_dir = 'data/train'
 validation_data_dir = 'data/test'
 nb_train_samples = 2180
 nb_validation_samples = 600
-epochs = 1
+epochs = 50
 batch_size = 16
 
 # build the VGG16 network
