@@ -126,4 +126,4 @@ model.fit_generator(
     validation_steps=nb_validation_samples // batch_size,
     verbose=2)
 
- model.save_weights(full_model_weights_path)
+model.save_weights(full_model_weights_path)
