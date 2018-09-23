@@ -51,7 +51,7 @@ from keras.layers import Dropout, Flatten, Dense
 
 # path to the model weights files.
 weights_path = '../keras/examples/vgg16_weights.h5'
-full_model_weights-path = 'full_model.h5'
+full_model_weights_path = 'full_model.h5'
 top_model_weights_path = 'bottleneck_fc_model.h5'
 # dimensions of our images.
 img_width, img_height = 150, 150
