@@ -1,5 +1,6 @@
 {
 	"name": "melanoma-classifier",
+	"version": "0.0.1",
 	"artifact": 	
 		{
 			"id": "id1",
