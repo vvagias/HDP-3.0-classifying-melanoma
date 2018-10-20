@@ -1,5 +1,5 @@
-'''Transfer learning: Phase 2 .. 
-    (Re-training the stripped VGG16) 
+'''Transfer learning: Phase 2 ..
+    (Re-training the stripped VGG16)
 
     1) take the pretrained fully connected classifier (generated in classifier.py)
     2) connect this to the stripped VGG 16 CNN
@@ -29,9 +29,9 @@ data/
             image2.jpg
             ...
 
-Edit the values for: 
+Edit the values for:
 
-nb_train_samples 
+nb_train_samples
 nb_validation_samples
 
 below, to correctly reflect the number of images in the data directory
@@ -54,13 +54,13 @@ from keras.layers import Dropout, Flatten, Dense
 
 # path to the model weights files.
 weights_path = '../keras/examples/vgg16_weights.h5'
-full_model_weights_path = 'full_model.h5'
+full_model_weights_path = 'weights.h5'
 top_model_weights_path = 'bottleneck_fc_model.h5'
 # dimensions of our images.
 img_width, img_height = 150, 150
 
-train_data_dir = 'data/train'
-validation_data_dir = 'data/test'
+train_data_dir = '../../ISIC-Dataset-Downloader-master/5a2ecc5d1165975c9459427e/'
+validation_data_dir = '../../ISIC-Dataset-Downloader-master/5a2ecc5d1165975c9459427e/'
 nb_train_samples = 2180
 nb_validation_samples = 600
 epochs = 50
